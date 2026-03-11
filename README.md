@@ -8,7 +8,7 @@ The first two chapters were envisaged to encourage you to experiment with [pulse
 > Variable sampling period introduces variable delay. That delay should be taken into account when tuning the controller. The resulting gains of the controller are adjusted on the fly. You might call it an adaptive system, but in fact this is to mimic the controller with constant [gains](http://www.ufnalski.edu.pl/proceedings/misc/Naslin_vs_Kessler_BEAMER.pdf) running at a constant sampling time.
 
 > [!IMPORTANT]
-> The encoder triggered control system is bound to fail at zero speed - no input capture interrupt ```c HAL_TIM_IC_CaptureCallback()``` means no controller code execution. To fix that, an upper limit of the update period has to be introduced for low speeds. Note the output capture interrupt ```c HAL_TIM_OC_DelayElapsedCallback()```. The control system switches between the encoder event triggered one and the fixed sampling time one. The transition point is defined by ```PULSE_TIMING_ARR```.
+> The encoder triggered control system is bound to fail at zero speed - no input capture interrupt ``` HAL_TIM_IC_CaptureCallback()``` means no controller code execution. To fix that, an upper limit of the update period has to be introduced for low speeds. Note the output capture interrupt ``` HAL_TIM_OC_DelayElapsedCallback()```. The control system switches between the encoder event triggered one and the fixed sampling time one. The transition point is defined by ```PULSE_TIMING_ARR```.
 
 > [!NOTE]
 > The low-CPR encoder is used to highlight the effect of delayed information about the actual speed on the control system. 
